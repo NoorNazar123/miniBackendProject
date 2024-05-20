@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div
+      class="w-full flex flex-col items-center text-white bg-zinc-900 min-h-screen py-4"
+    >
+      <div class="w-[80%]">
+        <h1 class="text-center text-7xl font-bold text-normal my-8">
+          Explain Problem Solution
+        </h1>
+        <form action="/create" method="post">
+         <input
+         type="text"
+         name="title"
+         placeholder="title"
+         class="bg-zinc-700 block w-full my-6 px-4 py-4 text-2xl shadow-md-white rounded-md outline-none"
+       />
+       <textarea
+         name="details"
+         placeholder="description"
+         class="bg-zinc-700 block w-full px-4 py-4 text-2xl shadow-md rounded-md outline-none"
+         rows="4"
+       ></textarea>
+       <input
+         type="submit"
+         placeholder="submit"
+         class="px-6 py-2 bg-gray-500 hover:bg-zinc-700 text-2xl my-4 rounded-md"
+       />
+        </form>
+       
+      </div>
+      <ul class="w-[80%] flex justify-between flex-wrap mt-16">
+
+        <% if(files.length > 0){ %> 
+
+         <% files.forEach(function(val){ %>
+            <li class="min-w-[20%] my-2 bg-zinc-700 p-4 rounded-md">
+              <h1 class="text-2xl font-bold"><%= val %></h1>
+              <a class="text-2xl my-2" href="/files/<%= val %>">read me</a>
+            </li> 
+        <% }) %> 
+    
+        <% } else { %>
+            <h1 class="text-2xl bg-zinc-700 px-4 py-2 rounded-md">Not Post Yet</h1>
+           
+        <% } %>  
+
+      
+      </ul>   
+    </div>
+
+    <script src="/javascripts/script.js"></script>
+  </body>
+</html>
